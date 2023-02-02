@@ -46,7 +46,9 @@ public extension Modifier {
                 .dropLast("\n\(backticks)".count)
             )
             
+            print("About to dip into Pygments")
             var highlighted = Pygments.html(String(markdown), use: lexer)
+            
             highlighted = highlighted.replacingOccurrences(of: "<pre>", with: "")
             highlighted = highlighted.replacingOccurrences(of: "</pre>", with: "")
             highlighted = highlighted.trimmingCharacters(in: .newlines)
